@@ -11,9 +11,8 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
+  layout: 'customize',
   data() {
     return {
       post: {},
@@ -31,11 +30,7 @@ export default {
     };
 
     try {
-      const res = await axios.get(
-        `http://127.0.0.1:8000/api/posts/${this.$route.params.id}`,
-        config
-      );
-
+      const res = await this.$axios.get(`/posts/${this.$route.params.id}`,config);
       this.post = res.data;
     } catch (err) {
       console.log(err);
@@ -43,8 +38,8 @@ export default {
   },
   methods: {
     post_data: async function() {
-        await axios
-          .put(`http://127.0.0.1:8000/api/posts/${this.post.id}`, {
+        await this.$axios
+          .put(`/posts/${this.post.id}`, {
             post: this.post.post,
             description: this.post.description
           })

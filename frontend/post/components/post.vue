@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Post",
   props: ["post", "id"],
@@ -25,10 +23,7 @@ export default {
       };
 
       try {
-        await axios.delete(
-          `http://127.0.0.1:8000/api/posts/${id}`,
-          config
-        );
+        await this.$axios.delete(`/posts/${id}`,config);
           alert("deleted successfully");
           this.$nuxt.refresh()
         } catch (err) {

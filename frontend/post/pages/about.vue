@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    layout: 'customize',
     head(){
         return {
             title: "Post App About"

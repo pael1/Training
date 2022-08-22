@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import axios from "axios";
 import Post from "../../components/post";
 import Header from "../../components/Header.vue";
 
 export default {
+  layout: 'customize',
   components: {
     Post,
     Header
@@ -40,7 +40,7 @@ export default {
     };
 
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/posts", config);
+      const res = await this.$axios.get("/posts", config);
         // console.log(res);
       this.posts = res.data;
     } catch (err) {
@@ -55,8 +55,8 @@ export default {
           formData.append(key, value);
         }
 
-        await axios
-          .post("http://127.0.0.1:8000/api/posts/", formData)
+        await this.$axios
+          .post("/posts/", formData)
           .then(({ data }) => {
             alert(data.message);
             this.form = "";
