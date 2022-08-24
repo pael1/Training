@@ -1,23 +1,28 @@
 <template>
-  <div class="footer">
-  <p>Footer</p>
-</div>
+  <div
+    class="
+      w-full
+      h-16
+      bg-green-900
+      border-t-2 border-white
+      fixed
+      left-0
+      bottom-0
+      flex
+      justify-center
+      items-center
+      text-white
+    "
+  >
+    <a class="font-semibold" href="https://tailwind-elements.com/"
+      >Tailwind Elements</a
+    >
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: red;
-   color: white;
-   text-align: center;
-}
 </style>

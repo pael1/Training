@@ -1,50 +1,70 @@
 <template>
-  <header class="header">
-    <h1 class="title">Post App</h1>
-    <ul>
-      <li>
-        <nuxt-link to="/">Home</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/posts">Post</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/about">About</nuxt-link>
-      </li>
-    </ul>
-  </header>
+  <div
+    class="bg-green-900 text-white"
+    :class="{ 'absolute w-full h-screen top-0 left-0': menu }"
+  >
+    <div class="container sm:mx-auto flex justify-between">
+      <div class="w-auto p-6">
+        <!-- Title -->
+        <h1 class="hidden sm:block">POST APP</h1>
+        <!-- Icon -->
+        <div class="block sm:hidden">X
+          <i class="fa fa-rocket"></i>
+        </div>
+      </div>
+      <!-- Desktop nav list -->
+      <nav class="hidden sm:block">
+        <ul class="flex">
+           <li
+            v-for="(item, index) in items"
+            :key="index"
+          >
+           <nuxt-link :to="item.page" class="hover:bg-green-800 p-6 block">{{ item.title }}</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+      <!-- Toggle menu mobile icon -->
+        <div
+          class="ml-auto sm:hidden p-6"
+          @click="menu = !menu"
+        >Y
+          <i class="fa fa-bars"></i>
+        </div>
+      </div>
+      <!-- Mobile nav list -->
+      <nav v-show="menu" class="w-full">
+        <ul class="flex flex-col text-center">
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <nuxt-link :to="item.page" class="hover:bg-green-800 p-6 block">{{ item.title }}</nuxt-link>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
-
 <script>
 export default {
-  name: "Navbar"
-};
+  name: "Navbar",
+  data() {
+    return {
+      menu: false,
+      items: [
+        {
+          title: 'Home',
+          page: '/'
+        },
+        {
+          title: 'Post',
+          page: '/posts'
+        },
+        {
+          title: 'About',
+          page: '/about'
+        }
+      ]
+    }
+  }
+}
 </script>
-
-<style>
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px dotted #ccc;
-}
-
-.header .title {
-  font-size: 3rem;
-  color: #526488;
-}
-
-.header ul {
-  display: flex;
-}
-
-.header a {
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  padding: 0.3rem 1rem;
-  margin-right: 0.5rem;
-}
-</style>

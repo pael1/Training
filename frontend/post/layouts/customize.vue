@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     <Navbar/>
     <Header />
     <nuxt/>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 
-<style>
+<!-- <style> -->
 * {
   box-sizing: border-box;
   margin: 0;

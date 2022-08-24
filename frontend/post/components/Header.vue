@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="text-2xl font-normal leading-normal mt-5 ml-10">
     <h1> {{ title }} </h1>
   </header>
 </template>
