@@ -3,7 +3,7 @@
     class="h-screen flex flex-col items-center justify-center border rounded"
   >
     <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-      <form method="post" @submit.prevent="login">
+      <form @submit.prevent="login">
         <div class="form-group mb-6">
           <label
             for="exampleInputEmail1"
