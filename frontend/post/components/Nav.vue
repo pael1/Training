@@ -8,9 +8,7 @@
         <!-- Title -->
         <h1 class="hidden sm:block">POST APP</h1>
         <!-- Icon -->
-        <div class="block sm:hidden">
-         Post App
-        </div>
+        <div class="block sm:hidden">Post App</div>
       </div>
       <!-- Desktop nav list -->
       <nav class="hidden sm:block">
@@ -19,6 +17,71 @@
             <nuxt-link :to="item.page" class="hover:bg-gray-300 p-6 block">{{
               item.title
             }}</nuxt-link>
+          </li>
+          <li class="p-6 block">
+            <div class="dropdown relative">
+              <a
+                class="dropdown-toggle flex items-center hidden-arrow"
+                href="#"
+                id="dropdownMenuButton2"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                  class="rounded-full"
+                  style="height: 25px; width: 25px"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="
+                  dropdown-menu
+                  min-w-max
+                  absolute
+                  hidden
+                  bg-white
+                  text-base
+                  z-50
+                  float-left
+                  py-2
+                  list-none
+                  text-left
+                  rounded-lg
+                  shadow-lg
+                  mt-1
+                  hidden
+                  m-0
+                  bg-clip-padding
+                  border-none
+                  left-auto
+                  right-0
+                "
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li>
+                  <a
+                    class="
+                      dropdown-item
+                      text-sm
+                      py-2
+                      px-4
+                      font-normal
+                      block
+                      w-full
+                      whitespace-nowrap
+                      bg-transparent
+                      text-gray-700
+                      hover:bg-gray-100
+                    "
+                    href="#" @click.prevent="logout"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </nav>
@@ -59,6 +122,7 @@ export default {
   data() {
     return {
       menu: false,
+      user: this.$auth.user.data,
       items: [
         {
           title: "Home",
@@ -74,6 +138,13 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+
+      this.$router.push('/login')
+    },
   },
 };
 </script>
