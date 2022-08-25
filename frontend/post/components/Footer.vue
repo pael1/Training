@@ -3,7 +3,7 @@
     class="
       w-full
       h-16
-      bg-green-900
+      bg-gray-200
       border-t-2 border-white
       fixed
       left-0
@@ -11,11 +11,11 @@
       flex
       justify-center
       items-center
-      text-white
+      text-black-700
     "
   >
     <a class="font-semibold" href="https://tailwind-elements.com/"
-      >Tailwind Elements</a
+      >Example Footer</a
     >
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-green-900 text-white"
+    class="bg-gray-200 text-black-700"
     :class="{ 'absolute w-full h-screen top-0 left-0': menu }"
   >
     <div class="container sm:mx-auto flex justify-between">
@@ -8,37 +8,46 @@
         <!-- Title -->
         <h1 class="hidden sm:block">POST APP</h1>
         <!-- Icon -->
-        <div class="block sm:hidden">X
-          <i class="fa fa-rocket"></i>
+        <div class="block sm:hidden">
+         Post App
         </div>
       </div>
       <!-- Desktop nav list -->
       <nav class="hidden sm:block">
         <ul class="flex">
-           <li
-            v-for="(item, index) in items"
-            :key="index"
-          >
-           <nuxt-link :to="item.page" class="hover:bg-green-800 p-6 block">{{ item.title }}</nuxt-link>
+          <li v-for="(item, index) in items" :key="index">
+            <nuxt-link :to="item.page" class="hover:bg-gray-300 p-6 block">{{
+              item.title
+            }}</nuxt-link>
           </li>
         </ul>
       </nav>
       <!-- Toggle menu mobile icon -->
-        <div
-          class="ml-auto sm:hidden p-6"
-          @click="menu = !menu"
-        >Y
-          <i class="fa fa-bars"></i>
-        </div>
-      </div>
-      <!-- Mobile nav list -->
-      <nav v-show="menu" class="w-full">
-        <ul class="flex flex-col text-center">
-        <li
-          v-for="(item, index) in items"
-          :key="index"
+      <div class="ml-auto sm:hidden p-6" @click="menu = !menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
         >
-          <nuxt-link :to="item.page" class="hover:bg-green-800 p-6 block">{{ item.title }}</nuxt-link>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+    <!-- Mobile nav list -->
+    <nav v-show="menu" class="w-full">
+      <ul class="flex flex-col text-center">
+        <li v-for="(item, index) in items" :key="index">
+          <nuxt-link :to="item.page" class="hover:bg-gray-300 p-6 block">{{
+            item.title
+          }}</nuxt-link>
         </li>
       </ul>
     </nav>
@@ -52,19 +61,19 @@ export default {
       menu: false,
       items: [
         {
-          title: 'Home',
-          page: '/'
+          title: "Home",
+          page: "/",
         },
         {
-          title: 'Post',
-          page: '/posts'
+          title: "Post",
+          page: "/posts",
         },
         {
-          title: 'About',
-          page: '/about'
-        }
-      ]
-    }
-  }
-}
+          title: "About",
+          page: "/about",
+        },
+      ],
+    };
+  },
+};
 </script>

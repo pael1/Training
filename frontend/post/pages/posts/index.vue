@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Header
-      :title="title"
-    />
-    <!-- <button v-on:click="isHidden = !isHidden">Toggle hide and show</button> -->
+    <Header :title="title" />
     <div class="text-right mr-40">
       <button
         type="button"
@@ -32,25 +29,6 @@
         Create Post
       </button>
     </div>
-
-    <!-- <h1 v-if="!isHidden">Hide me on click event!</h1> -->
-    <!-- <form @submit.prevent="post_data" id="form">
-      <input
-        v-model="form.post"
-        type="text"
-        name="post"
-        placeholder="Enter post"
-        required
-      />
-      <input
-        v-model="form.description"
-        type="description"
-        name="description"
-        placeholder="Enter description"
-        required
-      />
-      <button type="submit">Save Post</button>
-    </form> -->
     <ol class="border-l border-gray-300">
       <Post
         v-for="post in posts"
@@ -214,8 +192,8 @@
           </div>
         </div>
       </div>
+      <notifications group="foo" position="bottom right" />
     </div>
-    <notifications group="foo" position="bottom right" />
   </div>
 </template>
 
@@ -268,7 +246,7 @@ export default {
           this.$notify({
             group: "foo",
             // title: "This is the <em>title</em>",
-            text: "<b>"+data.message+"</b>",
+            text: "<b>" + data.message + "</b>",
             type: "success",
           });
           this.form = "";
@@ -289,12 +267,4 @@ export default {
 </script>
 
 <style>
-/* #form{
-  background-color: black;
-  padding: 4px;
-  margin-bottom: 10px;
-}
-#form button{
-  color: white;
-} */
 </style>
